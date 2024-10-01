@@ -5,8 +5,8 @@
             <p>An automated air freight scheduling service</p>
         </div>
         <div>
-           <a *ngIf="enableFlightSchedule" [routerLinkActive]="'active-link'" [routerLink]="['schedule']" (click)="onFlightScheduleClick();">VIEW ORDER SCHEDULE</a>
-           <a *ngIf="!enableFlightSchedule" [routerLinkActive]="'active-link'" [routerLink]="['orders']" (click)="onFlightOrdersClick();">VIEW FLIGHT SCHEDULE</a>
+           <a *ngIf="enableFlightSchedule" (click)="onFlightScheduleClick();">VIEW ORDER SCHEDULE</a>
+           <a *ngIf="!enableFlightSchedule" (click)="onFlightOrdersClick();">VIEW FLIGHT SCHEDULE</a>
         </div>
     </div>
     <router-outlet></router-outlet>

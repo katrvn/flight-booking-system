@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { APP_CONFIG, AppConfig } from '../model/appconfig';
 import { flightschedule } from '../model/flightschedule';
-import { catchError, map, reduce, throwError } from 'rxjs';
+import { catchError, filter, map, reduce, throwError } from 'rxjs';
 import { flightorder } from '../model/flightorder';
 
 @Injectable({
@@ -30,11 +30,10 @@ export class FlightService {
     const url = `${this.appConfig.mockDataFilePath}${this.appConfig.mockDataFileName.flightOrders}`;
     return this.httpClient.get<flightorder[]>(url).pipe(
       map((val) => { 
-          return Object.entries(Object.values(val)).map(([key, value]) => ({
-            orderId: key,
-            ...value
-          }));
-        }),
+        return Object.entries(val).map(([key, value]) => {
+          return { order_name: value.order_name, destination: value.destination }
+        });
+      }),
       catchError((err) => throwError(() => err))
     );
   }

@@ -1,4 +1,4 @@
 export class flightorder {
-    ordername: string = '';
+    order_name: string = '';
     destination: string = '';
 }

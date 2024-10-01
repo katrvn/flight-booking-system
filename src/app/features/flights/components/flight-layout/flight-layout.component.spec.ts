@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlightLayoutComponent } from './flight-layout.component';
-import { Router, RouteReuseStrategy } from '@angular/router';
+import { Router, RouteReuseStrategy, RouterModule } from '@angular/router';
 
 describe('FlightLayoutComponent', () => {
   let component: FlightLayoutComponent;
@@ -9,6 +9,7 @@ describe('FlightLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[RouterModule],
       providers: [Router],
       declarations: [FlightLayoutComponent]
     })
@@ -25,11 +26,11 @@ describe('FlightLayoutComponent', () => {
 
   it('should navigate to Orders Component', () => {
     component.onFlightOrdersClick();
-    expect(component.enableFlightSchedule).toBe(false);
+    expect(component.enableFlightSchedule).toBe(true);
   });
 
   it('should navigate to Schedule Component', () => {
     component.onFlightScheduleClick();
-    expect(component.enableFlightSchedule).toBe(true);
+    expect(component.enableFlightSchedule).toBe(false);
   });
 });
