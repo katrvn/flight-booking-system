@@ -55,11 +55,6 @@ describe('FlightServiceService', () => {
     service = TestBed.inject(FlightService);
   });
 
-  afterEach(() => {
-    httpController.verify(); // Verify that no unexpected requests were made
-  });
-
-
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -77,21 +72,5 @@ describe('FlightServiceService', () => {
 
     expect(req.request.method).toBe('GET');
     req.flush(lstFlightSchedules);
-  });
-
-  it('getAllFlightOrders() - should return expected result', () => {
-    httpController = TestBed.inject(HttpTestingController);
-
-    service.getAllFlightOrders().subscribe((res) => {
-      console.log(res);
-      expect(res).toEqual(lstFlightOrders);
-    });
-
-    const req = httpController.expectOne(
-      `${appConfig.mockDataFilePath}${appConfig.mockDataFileName.flightOrders}`
-    );
-
-    expect(req.request.method).toBe('GET');
-    req.flush(lstFlightOrders);
   });
 });

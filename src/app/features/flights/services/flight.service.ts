@@ -29,9 +29,9 @@ export class FlightService {
   getAllFlightOrders(){
     const url = `${this.appConfig.mockDataFilePath}${this.appConfig.mockDataFileName.flightOrders}`;
     return this.httpClient.get<flightorder[]>(url).pipe(
-      map((val) => { 
+      map((val) => {
         return Object.entries(val).map(([key, value]) => {
-          return { order_name: value.order_name, destination: value.destination }
+          return { order_name: key, destination: value.destination }
         });
       }),
       catchError((err) => throwError(() => err))

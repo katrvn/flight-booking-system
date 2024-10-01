@@ -1,5 +1,10 @@
-<div>
-    <h4>Orders</h4>
+<div  class="container-orders">
+    <div class="hdr-orders">
+        <h4>{{title}}</h4>
+        <button type="button" (click)="onCancel()" *ngIf="data">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="order_name">
             <mat-header-cell *matHeaderCellDef>Order</mat-header-cell>
