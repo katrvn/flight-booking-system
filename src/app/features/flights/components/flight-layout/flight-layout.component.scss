@@ -1,0 +1,16 @@
+.container-main {
+    margin: 20px;
+}
+.hdr-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.hdr-item-1 {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}

@@ -1,0 +1,28 @@
+<div>
+    <h4>Orders</h4>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="order_name">
+            <mat-header-cell *matHeaderCellDef>Order</mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="order_name">{{row.order_name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="flight_number">
+            <mat-header-cell *matHeaderCellDef>Flight</mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="flight_number">{{row.flight_number}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="departure_city">
+            <mat-header-cell *matHeaderCellDef>Departure</mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="Departure">{{row.departure_city}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="arrival_city">
+            <mat-header-cell *matHeaderCellDef>Arrival</mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="Arrival">{{row.arrival_city}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="day">
+            <mat-header-cell *matHeaderCellDef>Day</mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="day">{{row.day}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
+    </mat-table>
+</div>

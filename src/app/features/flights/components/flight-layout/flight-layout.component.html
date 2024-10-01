@@ -1,0 +1,13 @@
+<div id="layout-header" class="container-main">
+    <div class="hdr-container">
+        <div class="hdr-item-1">
+            <h2>Transport.ly</h2>
+            <p>An automated air freight scheduling service</p>
+        </div>
+        <div>
+           <a *ngIf="enableFlightSchedule" (click)="onFlightScheduleClick();">VIEW ORDER SCHEDULE</a>
+           <a *ngIf="!enableFlightSchedule" (click)="onFlightOrdersClick();">VIEW FLIGHT SCHEDULE</a>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,7 @@
+{
+    "mockDataFilePath": "\\assets\\mock-data\\",
+    "mockDataFileName": {
+        "flightSchedule": "flights-schedule.json",
+        "flightOrders" : "flights-orders.json"
+    }
+}
