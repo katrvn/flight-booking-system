@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FlightService } from '../../services/flight.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { flightschedule } from '../../model/flightschedule';
+import { MatDialog } from '@angular/material/dialog';
+import { FlightOrdersComponent } from '../flight-orders/flight-orders.component';
 
 @Component({
   selector: 'app-flight-schedule',
@@ -18,7 +20,8 @@ export class FlightScheduleComponent implements OnInit{
     'arrival_city',
     'action'
   ];
-  constructor(private flightService: FlightService){}
+  constructor(private flightService: FlightService, 
+    private dialog: MatDialog){}
 
   grpFlightByDay(flights: flightschedule[]) {
     let result : {[key: number] : flightschedule[]} = {};
@@ -45,4 +48,15 @@ export class FlightScheduleComponent implements OnInit{
     }
    });
   }
+
+  onViewFlight(schedule: flightschedule){
+    const dialogRef = this.dialog.open(FlightOrdersComponent, {
+      panelClass: 'custom-modalbox',
+      minWidth: '700px',
+      maxHeight: '550px',
+      hasBackdrop: true,
+      disableClose: false,
+      data: schedule
+    });
+   }
 }
